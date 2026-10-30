@@ -383,6 +383,9 @@ html{scroll-behavior:smooth;overscroll-behavior-y:none}
   background:rgba(255,250,240,.88);border-radius:6px;padding:12px 18px 13px;border:1px solid rgba(168,35,79,.25);box-shadow:0 8px 24px rgba(80,40,20,.12)}
 .cap b{display:block;font-family:var(--fun);font-weight:700;font-size:clamp(24px,6.6vw,32px);color:var(--rani);line-height:1.1}
 .cap span{display:block;font-family:var(--hand);font-weight:500;font-size:clamp(18px,5vw,22px);color:var(--ink-2);line-height:1.15;margin-top:4px;letter-spacing:.01em}
+.cap.pow b{animation:pw 2.6s ease-in-out infinite;transform-origin:50% 60%}
+@keyframes pw{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(-2.5deg) scale(1.06);text-shadow:0 2px 0 #fff,0 0 30px rgba(255,236,190,1)}}
+@media (prefers-reduced-motion:reduce){.cap.pow b{animation:none}}
 .cap.low{top:calc(50vh - 2%);top:calc(50svh - 2%)}
 .cap.pow{background:none;box-shadow:none;border:none}
 .cap.pow b{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(62px,19vw,104px);line-height:.95;color:var(--rani);text-shadow:0 2px 0 #fff,0 0 22px rgba(255,255,255,.8);transform:rotate(-5deg)}
@@ -487,7 +490,7 @@ html{scroll-behavior:smooth;overscroll-behavior-y:none}
     </div>
     <div class="caps">
       <p class="cap" data-a=".16" data-b=".58"><b>They grew up…</b><span>flying high under the same Lahore sky</span></p>
-      <p class="cap pow" data-a=".605" data-b=".695"><b>Pecha lag gaya!</b><span>their strings crossed</span></p>
+      <p class="cap pow" data-a=".605" data-b="1.2"><b>Pecha lag gaya!</b><span>their strings crossed</span></p>
       <p class="cap low" data-a=".69" data-b="1.2"><b>…and now they fly together</b><span>keep scrolling, the Shendi awaits</span></p>
     </div>
     <p class="hint">scroll to let them fly</p>
@@ -735,6 +738,7 @@ html{scroll-behavior:smooth;overscroll-behavior-y:none}
     // captions
     qa('.cap').forEach(function(c){var A=+c.dataset.a,B=+c.dataset.b,o=Math.min(C((p-A)/.03),C((B-p)/.03));c.style.opacity=o.toFixed(2);
       c.style.transform='translate(-50%,'+((1-o)*10).toFixed(1)+'px)';});
+    var pws=q('.cap.pow span');if(pws)pws.style.opacity=C((.76-p)/.05).toFixed(2);
     var h=q('.hint');if(h)h.style.opacity=p<.03?1:0;
     var cvr=q('.cover');if(cvr){var L=SM((p-.03)/.1);cvr.style.transform='translateY('+(-L*113).toFixed(2)+'%)';cvr.style.visibility=L>=1?'hidden':'visible';}
     var fl=q('.flash');if(fl)fl.style.opacity=(Math.max(0,1-Math.abs(p-.617)/.012)*.75).toFixed(2);
