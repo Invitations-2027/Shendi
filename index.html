@@ -375,7 +375,7 @@ html{scroll-behavior:smooth;overscroll-behavior-y:none}
 @media (min-aspect-ratio:1/1){.fm{width:min(22vw,calc(33svh*.76),210px)}}
 
 /* ---------- kite story ---------- */
-.story{position:relative;height:300vh;background:#FFF3DA}
+.story{position:relative;height:260vh;background:#FFF3DA}
 .story .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:linear-gradient(180deg,#BFD8E6 0%,#E4EEEE 48%,#F7E7CC 100%)}
 .story .sky{position:absolute;left:50%;top:0;height:100%;width:auto;aspect-ratio:400/800;transform:translateX(-50%);overflow:visible}
 .caps{position:absolute;left:0;right:0;top:calc(env(safe-area-inset-top) + 5.5%);z-index:3;pointer-events:none}
@@ -383,6 +383,7 @@ html{scroll-behavior:smooth;overscroll-behavior-y:none}
   background:rgba(255,250,240,.88);border-radius:6px;padding:12px 18px 13px;border:1px solid rgba(168,35,79,.25);box-shadow:0 8px 24px rgba(80,40,20,.12)}
 .cap b{display:block;font-family:var(--fun);font-weight:700;font-size:clamp(24px,6.6vw,32px);color:var(--rani);line-height:1.1}
 .cap span{display:block;font-family:var(--hand);font-weight:500;font-size:clamp(18px,5vw,22px);color:var(--ink-2);line-height:1.15;margin-top:4px;letter-spacing:.01em}
+.cap.low{top:calc(50vh - 2%);top:calc(50svh - 2%)}
 .cap.pow{background:none;box-shadow:none;border:none}
 .cap.pow b{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(62px,19vw,104px);line-height:.95;color:var(--rani);text-shadow:0 2px 0 #fff,0 0 22px rgba(255,255,255,.8);transform:rotate(-5deg)}
 .cap.pow span{font-size:22px;margin-top:18px;color:var(--ink)}
@@ -487,7 +488,7 @@ html{scroll-behavior:smooth;overscroll-behavior-y:none}
     <div class="caps">
       <p class="cap" data-a=".16" data-b=".58"><b>They grew up…</b><span>flying high under the same Lahore sky</span></p>
       <p class="cap pow" data-a=".605" data-b=".695"><b>Pecha lag gaya!</b><span>their strings crossed</span></p>
-      <p class="cap" data-a=".73" data-b="1.2"><b>…and now they fly together</b><span>keep scrolling, the Shendi awaits</span></p>
+      <p class="cap low" data-a=".69" data-b="1.2"><b>…and now they fly together</b><span>keep scrolling, the Shendi awaits</span></p>
     </div>
     <p class="hint">scroll to let them fly</p>
     <div class="flash" aria-hidden="true"></div>
@@ -751,7 +752,7 @@ html{scroll-behavior:smooth;overscroll-behavior-y:none}
   window.__kite={render:render,cover:cover};
   var st=document.getElementById('story');if(!st)return;
   var hearts=st.querySelector('.hearts'),H=[],vis=false,last=0;
-  var PK=[[0,0],[.07,.03],[.15,.14],[.2,.2],[.45,.5],[.52,.6],[.55,.617],[.62,.7],[.8,.86],[.93,1],[1,1]];
+  var PK=[[0,0],[.0875,.03],[.1875,.14],[.25,.2],[.5625,.5],[.65,.6],[.6875,.617],[.775,.7],[.925,.88],[1,1]];
   function pm(s){for(var i=1;i<PK.length;i++){if(s<=PK[i][0]){var a=PK[i-1],b=PK[i];return a[1]+(b[1]-a[1])*(s-a[0])/(b[0]-a[0]);}}return 1;}
   function prog(){var r=st.getBoundingClientRect();return pm(C(-r.top/Math.max(1,r.height-innerHeight)));}
   var run=false;var pd=null,lt=0;
